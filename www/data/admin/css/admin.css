@@ -1,0 +1,464 @@
+@CHARSET "UTF-8";
+
+/* ---- tekst ---- */
+
+html,body
+{
+	margin:0px;
+	height:100%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:90%;
+	text-align:left;
+}
+
+h1
+{
+	font-size: 1.5em; 
+}
+h2
+{
+	font-size: 1.2em; 
+}
+h3
+{
+	font-size: 1.15em; 
+}
+h4
+{
+	font-size: 1.1em; 
+}
+
+p
+{
+	margin:0 0 .5em;
+}
+
+input, select
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:100%;
+	line-height:1.5em;
+}
+
+/* ---- structure ---- */
+
+
+
+#mainCont
+{
+	border:4px solid #c3d9ff;
+}
+
+	#header
+	{
+		background-color:#c3d9ff;
+		padding-top:2px;
+		padding-bottom:2px;
+		height:24px;
+		position:relative;
+	}
+	
+		#titleText
+		{
+			float:left;
+			margin:0px;
+			padding-left:10px;
+		}
+		
+		#adminControl
+		{
+			float:right;
+			line-height:20px;
+		}
+	
+			#adminControl a, #adminControl a:link
+			{
+				font-size:9pt;
+				text-decoration:none;
+				margin-right:10px;	
+			}
+			
+			#adminControl img
+			{ 
+			    vertical-align: bottom;
+			    margin-right:5px;
+			}
+	
+	#msg
+	{
+		height:16px;
+	
+		background-color:#FFCC33;
+		border:1px solid black;
+		
+		font-weight:bold;
+		text-align:center;
+	}
+
+	#history
+	{
+		height:15px;
+		background-color:#E8EEF7;
+		border:1px solid black;
+		border-top:none;
+		
+		padding-left:10px;
+		font-size:8pt;
+	}
+	
+		#history a
+		{
+			font-size:8pt;
+			text-decoration:none;
+			cursor:pointer;
+			padding-left:3px;
+			padding-right:3px;
+		}
+
+	#wrapper
+	{
+		background-color:#FFFFFF;
+		border:1px solid black;
+		border-top:none;
+		
+		/*position:relative; scriptaculous */
+		height:0px; /* wordt verder door js goed gezet */
+	}	
+
+		#tips
+		{
+			float:right;
+		
+			background-color:#E8EEF7;
+			border-left:2px solid #C3D9FF;
+			
+			width:200px;
+			height:100%;
+			
+			text-align:left;
+			padding-left:3px;
+			padding-right:3px;
+		}
+
+		#content
+		{
+			/*position:relative; scriptaculous */
+			overflow:auto;
+			height:100%;
+		}
+			#text
+			{
+				padding:6px;
+			}
+	
+	#buttons
+	{
+		height:35px;
+		
+		background-color:#E8EEF7;
+		border:1px solid black;
+		border-top:none;
+		
+		padding-left:4px;
+		line-height:35px;
+	}
+	
+		#buttons button
+		{
+			margin-left:10px;
+			background-color:#C3D9FF;
+			border:1px solid black;
+		}
+	
+#loadingIndicator
+{
+	position:absolute;
+	right:3px;
+	top:4px;
+	
+	height:18px;
+	
+	padding-left:3px;
+	padding-right:3px;
+
+	color:white;
+	background-color:red;
+	font-size:14px;
+
+}
+
+/* ---- column ---- */
+.column
+{
+	float:left;
+}
+
+.columnSpacing
+{
+	margin-right:15px;
+}
+
+
+/* ---- tables ---- */
+
+/*table
+{
+	border:1px solid #E8EEF7;
+	border-bottom:0px;
+}*/
+
+table.borders
+{
+	border-collapse:collapse;
+	border-left: 1px solid #E8EEF7;
+	border-right: 1px solid #E8EEF7;
+	border-bottom: 1px solid #E8EEF7;
+}
+
+
+.listTable
+{
+	width:100%; 
+	margin-top:5px; 
+	margin-bottom:15px;
+}
+
+tr.blueHover:hover
+{
+	background-color:#E8EEF7;
+}
+
+td.disabled
+{
+	background-position:5px center;
+	background-repeat:no-repeat;
+	background-image:url("../img/pin-black.png");
+}
+
+td.enabled
+{
+	background-position:5px center;
+	background-repeat:no-repeat;
+	background-image:url("../img/pin-green.png");
+}
+
+/* ---- input ---- */
+
+
+button, object.swfupload
+{
+	padding:0px;
+	padding-left:25px;
+	padding-right:5px;
+	line-height:25px;
+	height:25px;
+	
+	background-position:5px center;
+	background-repeat:no-repeat;
+	background-image:url("../img/pin.png");
+	background-color:#E8EEF7;
+	border: 2px solid #c3d9ff;
+	
+	cursor:pointer;
+}
+
+button.save
+{
+	background-image:url("../img/save.png");
+}
+
+button.reset
+{
+	background-image:url("../img/reset.png");
+}
+
+button.historyJump
+{
+	background-image:url("../img/back.png");
+}
+
+button.login
+{
+	background-image:url("../img/login.png");
+}
+
+button.upload
+{
+	background-image:url("../img/upload.png");
+}
+
+object.swfupload
+{
+	background-image:url("../img/upload.png");
+	padding:0px;
+}
+
+button.delete
+{
+	background-image:url("../img/cross.png");
+	background-position:center;
+	background-repeat:no-repeat;
+	width:30px;
+	height:20px;	
+}
+
+/* ---- editables ---- */
+
+.editable
+{
+	background-color:#E8EEF7;
+	cursor:pointer;
+}
+
+.editable:hover
+{
+	margin:-2px;
+	border:2px solid #c3d9ff;
+}
+
+.editable.active
+{
+	background-color:#FFFFFF;
+	border:2px solid #91FF84;
+	margin:-2px;
+}
+
+.editable.error
+{
+	border:2px solid red;
+	margin:-2px;
+}
+
+.editable div
+{
+}
+
+.editable input, .editable select
+{
+	display:block;
+	width:100%;
+	height:100%;
+	border:0px;
+}
+
+.editable_Text, .editable_Password, .editable_Select
+{
+	min-height:1.5em;
+}
+
+.editable_Tiny
+{
+	min-height:15px;
+	max-height:200px;
+	overflow:auto;
+}
+
+.editable_Tiny.active
+{
+	min-height:none;
+	max-height:none;
+	overflow:visible;
+}
+
+
+
+
+
+.clickableCell
+{
+	cursor:pointer;
+}
+.clickableCell:hover
+{
+}
+
+h2.editableHeader
+{
+	margin-top:.5em;
+	margin-bottom:.5em;
+}
+
+/* ---- upload ----*/
+
+
+.upload_progressBar
+{
+	clear:both;
+	position:relative;
+	height:4px;
+	border:1px solid black;
+	overflow:hidden;
+}
+
+.upload_progressLine
+{
+	background-color:black;
+	position:relative;
+	height:100%;
+	width:0%;
+}
+
+.upload_cancel
+{
+	float:right;
+	width:17px;
+	height:17px;
+	background:url("../img/upload-cancel.png");
+}
+
+/* ---- elementen in pagina ---- */
+
+.moduleBar
+{
+	background-color:#c3d9ff; 
+	margin-top:10px; 
+	padding-left:10px; 
+	padding-right:10px; 
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+	.moduleBar h2
+	{
+		float:left;
+		margin:0px;
+		line-height:25px;
+	}
+	
+	.moduleBar div.buttons
+	{
+		float:right;
+		margin-left:20px; 
+	}
+
+div.dropmarker
+{
+	height:3px;
+	width:300px;
+	background-color:#FFCC33 ; /*#c3d9ff;*/
+	margin-top:-1px;
+	margin-left:-5px;
+	z-index:1000;
+	overflow: hidden;
+}
+
+.sortable tbody
+{
+	cursor:move;
+}
+
+
+td.pin
+{
+	background-image:url("../img/pin.png");
+	background-position:center center;
+	background-repeat:no-repeat;
+	
+	width:8px;
+}
+
+.quoin
+{
+	height:1px;
+	clear:both;
+}

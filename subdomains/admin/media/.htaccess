@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+# om zo bovenliggende .htaccess te negeren
+RewriteEngine on
+</IfModule>

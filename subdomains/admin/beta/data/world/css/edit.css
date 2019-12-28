@@ -1,0 +1,11 @@
+@import url("../services/blueprint-lvdg-1/typography.css");
+@import url("style.css");
+/*
+	@todo dit wil je duidelijk via een Uri:: doen!
+*/
+
+body
+{
+	width:632px;
+	background-color:#F7E7D3;
+}

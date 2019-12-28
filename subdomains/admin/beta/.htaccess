@@ -1,0 +1,76 @@
+
+##
+## PHP
+##
+
+##php_value upload_max_filesize 20M
+##php_value post_max_size 21M
+AddDefaultCharset utf-8
+##php_flag magic_quotes_gpc off 
+
+##
+## Error docs
+##
+
+ErrorDocument 404 /environment/404.php
+ErrorDocument 403 /environment/403.php
+
+
+##
+## Compression
+##
+# http://brightscape.net/compress-your-web-pages-with-mod_deflate/
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript
+
+##
+## Indexes
+##
+Options -Indexes
+
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine on
+
+RewriteCond %{ENV:REDIRECT_ROOT} =true
+RewriteRule ^ - [L]
+
+
+##
+## WWW forceren
+##
+# geen rekening gehouden met https
+# als er nog geen subdomein staat
+RewriteCond %{HTTP_HOST} !^([^.]+\.){2,}[^.]+$ [NC]
+# www toevoegen
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [L,R=301]
+
+
+##
+## Favicon niet op de IE manier
+##
+RewriteRule ^favicon\.ico$ - [E=ROOT:true,R=404]
+
+
+##
+## DATA
+##
+RewriteRule ^data/ - [E=ROOT:true,L]
+
+
+##
+## SUBDOMAIN TO DIR
+##
+
+RewriteCond %{HTTP_HOST} ^([^.]+)\.
+RewriteRule ^ - [E=SUBDOMAIN:%1]
+
+RewriteCond %{ENV:SUBDOMAIN} =admin
+RewriteRule ^ admin/ [E=ROOT:true,L]
+
+RewriteCond %{ENV:SUBDOMAIN} =www
+RewriteRule ^ world/ [E=ROOT:true,L]
+
+RewriteRule ^ - [E=ROOT:true,F]
+</IfModule>

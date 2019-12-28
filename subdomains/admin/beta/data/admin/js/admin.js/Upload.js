@@ -1,0 +1,7 @@
+var Upload = {
+	
+	InputRegister : [],
+	
+	FileRegister : []
+	
+};
